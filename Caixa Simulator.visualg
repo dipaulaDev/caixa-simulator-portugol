@@ -1,0 +1,58 @@
+algoritmo "caixasimulator"
+
+var
+  saldo, saque: real
+  opcoes: inteiro
+
+inicio
+
+  saldo <-1000
+  opcoes <-0
+
+  enquanto(opcoes <> 3)faca
+    escreval("Bem vindo(a)!!  Selecione uma opção (1 à 3)")
+    escreval("1 - Consultar meu saldo")
+    escreval("2 - Sacar um valor")
+    escreval("3 - Encerrar")
+    escreval("")
+    leia(opcoes)
+
+    se(opcoes >3)entao
+      escreval("Opção invalida!")
+    fimse
+    se(opcoes <1)entao
+      escreval("Opção invalida!")
+    fimse
+    se(opcoes = 1)entao
+      escreval("Seu saldo é de: R$", saldo)
+      escreval("")
+    fimse
+
+    se(opcoes = 2)entao
+      escreval("Quanto deseja sacar?")
+      leia(saque)
+      escreval("")
+      
+      se(saque > saldo)entao
+        escreval("Saldo insuficiente")
+        escreval("")
+      fimse 
+      se(saque <=0)entao
+        escreval("Digite um valor válido")senao
+          se(saque <= saldo)entao
+            escreval("Saque de R$" , saque, " realizado com sucesso.")
+            escreval("")
+            saldo <-(saldo - saque)
+            escreval("Seu saldo agora é de: R$", saldo)
+            escreval("")
+          fimse
+      fimse     
+    fimse
+    se(opcoes = 3)entao
+      escreval("Atendimento encerrado.")
+      escreval("Volte sempre!")
+      escreval("")
+    fimse
+  fimenquanto
+
+fimalgoritmo
